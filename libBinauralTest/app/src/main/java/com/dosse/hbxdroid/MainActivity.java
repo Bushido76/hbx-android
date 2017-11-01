@@ -57,14 +57,6 @@ public class MainActivity extends Activity {
 	private static Notificator not;
 	private static String currentPreset = "", currentPresetName= "";
 	private Menu optionsMenu;
-	private void removeBuyOption(){
-		runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-				optionsMenu.getItem(1).setVisible(false);
-			}
-		});
-	}
 	
 	private class Notificator extends Thread {
 		public void run() {
@@ -323,22 +315,7 @@ public class MainActivity extends Activity {
 		prog = (SeekBar) findViewById(R.id.prog);
 		time = (TextView) findViewById(R.id.t);
 		volume = (SeekBar) findViewById(R.id.volume);
-		//hide ads, will be shown again if the app is not licensed
-		adsH=((AdView)findViewById(R.id.adView)).getLayoutParams().height;
-		((AdView)findViewById(R.id.adView)).getLayoutParams().height=0;
-		new Thread() {
-			public void run() {
-				while(optionsMenu==null) //this workaround is cheaper than a pop station 3
-					try {
-						Thread.sleep(10);
-					} catch (InterruptedException e) {}
-				if (isPackageInstalled("com.dosse.libbinauraltestkey")) {
-					removeBuyOption();
-				}else{
-					loadAds();
-				}
-			}
-		}.start();
+		
 		if (bep == null) {
 			BinauralEnvelopePlayer.loadNoiseFromAssets(getApplication()
 					.getAssets());
@@ -453,21 +430,7 @@ public class MainActivity extends Activity {
 		}
 
 	}
-
-	private void loadAds(){
-		try{
-			runOnUiThread(new Runnable() {
-				@Override
-				public void run() {
-					try{
-						((AdView)findViewById(R.id.adView)).getLayoutParams().height=adsH;
-						((AdView)findViewById(R.id.adView)).loadAd(new com.google.android.gms.ads.AdRequest.Builder().build());
-					}catch(Throwable t){}
-				}
-			});
-		}catch(Throwable t){}
-	}
-
+	
 	private String cleanupString(String s){
 		String x=s.substring(0, s.lastIndexOf('_')).replace("_", " ").trim();
 		String ret=""+Character.toUpperCase(x.charAt(0));
