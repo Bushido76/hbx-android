@@ -39,7 +39,8 @@
 		android:layout_alignLeft="@+id/volume"
 		android:layout_alignRight="@+id/volume"
 		android:layout_marginLeft="12dp"
-		android:layout_marginRight="12dp"/>
+		android:layout_marginRight="12dp"
+		android:textColor="#FFFFFF"/>
 
 	<SeekBar
 		android:id="@+id/prog"
@@ -60,7 +61,8 @@
 		android:layout_alignLeft="@+id/prog"
 		android:layout_alignRight="@+id/prog"
 		android:layout_marginLeft="12dp"
-		android:layout_marginRight="12dp"/>
+		android:layout_marginRight="12dp"
+		android:textColor="#FFFFFF"/>
 
 	<Button
 		android:id="@+id/p"
