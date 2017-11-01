@@ -460,7 +460,7 @@ public class MainActivity extends Activity {
 			presetList.add(item);
 		}
 		fileList.setAdapter(new SimpleAdapter(this, presetList,
-				android.R.layout.simple_list_item_2, new String[] { "cleanName",
+				R.layout.listview_item, new String[] { "cleanName",
 						"path" }, new int[] { android.R.id.text1,
 						android.R.id.text2 }));
 		fileList.setOnItemClickListener(new OnItemClickListener() {

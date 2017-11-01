@@ -6,7 +6,8 @@
 	android:id="@+id/mainRL"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".MainActivity">
+	tools:context=".MainActivity"
+	android:background="#000000">
 
 	<ListView
 		android:id="@+id/fileList"
@@ -16,6 +17,7 @@
 		android:layout_alignParentTop="true"
 		android:layout_alignLeft="@+id/volume"
 		android:layout_marginRight="12dp">
+
 	</ListView>
 
 	<SeekBar
@@ -27,7 +29,7 @@
 		android:max="100"
 		android:layout_marginLeft="12dp"
 		android:layout_marginRight="12dp"/>
-	
+
 	<TextView
 		android:id="@+id/volumet"
 		android:layout_height="wrap_content"
@@ -48,7 +50,7 @@
 		android:max="100"
 		android:layout_marginLeft="12dp"
 		android:layout_marginRight="12dp"/>
-	
+
 	<TextView
 		android:id="@+id/t"
 		android:layout_width="wrap_content"
@@ -67,7 +69,7 @@
 		android:layout_alignLeft="@+id/t"
 		android:layout_alignParentBottom="true"
 		android:text="@string/playPause"/>
-	
+
 	<Button
 		android:id="@+id/s"
 		android:layout_width="wrap_content"
@@ -76,5 +78,6 @@
 		android:layout_alignBottom="@+id/p"
 		android:layout_alignRight="@+id/t"
 		android:text="@string/stop"/>
+
 </RelativeLayout>
 
